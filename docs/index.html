@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Select</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <h1>Select</h1>
+  <p>你还什么都没选</p>
+  <div id="js-select" class="select" data-toggle="select" style="width: 160px">
+    <div class="select__picker" data-select-picker>
+      <span class="select__value" data-select-value>选择品牌</span>
+      <i class="select__caret"></i>
+    </div>
+    <div class="select__dropdown" data-select-dropdown>
+      <ul>
+        <li data-value="1" data-text="阿斯顿·马丁1"><b>A</b><span>阿斯顿·马丁1</span></li>
+        <li data-value="2" data-text="阿斯顿·马丁2"><b>A</b><span>阿斯顿·马丁2</span></li>
+        <li data-value="3" data-text="阿斯顿·马丁3"><b>A</b><span>阿斯顿·马丁3</span></li>
+        <li data-value="4" data-text="阿斯顿·马丁4"><b>B</b><span>阿斯顿·马丁4</span></li>
+        <li data-value="5" data-text="阿斯顿·马丁5"><b>C</b><span>阿斯顿·马丁5</span></li>
+        <li data-value="6" data-text="阿斯顿·马丁6"><b>D</b><span>阿斯顿·马丁6</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <br>
+  <button type="button" id="js-setValue">设置为第 3 个</button>
+  <button type="button" id="js-getValue">获取当前值</button>
+  <br>
+  <button type="button" id="js-disable">禁用</button>
+  <button type="button" id="js-enable">可用</button>
+  <br>
+  <div style="height:200px"></div>
+  <button type="button" id="js-show">展开</button>
+  <button type="button" id="js-hide">关闭</button>
+  <button type="button" id="js-toggle">Toggle</button>
+
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../dist/select.js"></script>
+  <script>
+    $('#js-select').on('change.fe.select', function (e, data, $item) {
+      $(this).prev().text('你选择了：' + data.value + '-' + data.text);
+    });
+
+    $('#js-setValue').on('click', function () {
+      $('#js-select').data('fe.select').setValue({
+        text: '阿斯顿·马丁3 New',
+        value: 3
+      });
+    });
+
+    $('#js-getValue').on('click', function () {
+      var value = $('#js-select').data('fe.select').getValue();
+      alert(JSON.stringify(value));
+    });
+
+    $('#js-disable').on('click', function () {
+      $('#js-select').select('disable');
+    });
+
+    $('#js-enable').on('click', function () {
+      $('#js-select').select('enable');
+    });
+
+    $('#js-show').on('click', function () {
+      $('#js-select').select('show');
+      return false;
+    });
+
+    $('#js-hide').on('click', function () {
+      $('#js-select').select('hide');
+      return false;
+    });
+
+    $('#js-toggle').on('click', function () {
+      $('#js-select').select('toggle');
+      return false;
+    });
+  </script>
+</body>
+</html>
