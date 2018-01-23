@@ -68,6 +68,8 @@ function Select(elem, options) {
   this.isActive = false;
   this.isDisabled = false;
 
+  this._data = null;
+
   this._init();
 }
 
@@ -110,7 +112,7 @@ Select.prototype._init = function () {
 
 Select.prototype.setValue = function (data) {
   var selectedClass = this.options.selectedClass;
-  var old = this.getValue();
+  var old = this.getValue() || {};
 
   if (old.value !== data.value) {
     var $list = this.$dropdown.find(Selector.DATA_VALUE);
@@ -120,18 +122,18 @@ Select.prototype.setValue = function (data) {
     $item.addClass(selectedClass);
 
     this.$value.text(data.text);
-    this.$value.attr(Attr.DATA_VALUE, data.value);
-    this.$value.attr(Attr.DATA_TEXT, data.text);
+
+    this._data = {
+      text: data.text,
+      value: data.value
+    };
 
     this.$elem.trigger(Event.CHANGE, [data, $item]);
   }
 };
 
 Select.prototype.getValue = function () {
-  return {
-    text: this.$value.attr(Attr.DATA_TEXT),
-    value: this.$value.attr(Attr.DATA_VALUE)
-  };
+  return this._data;
 };
 
 Select.prototype.toggle = function () {
