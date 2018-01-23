@@ -10,7 +10,6 @@
   "main": "dist/select.js",
   "module": "src/index.js",
   "scripts": {
-    "start": "parcel docs/index.html --out-dir build",
     "build": "npm run lint && rollup -c ./rollup.config.js",
     "release": "npm run build && npm run minify",
     "minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --output dist/select.min.js dist/select.js",
