@@ -7,11 +7,11 @@
 
 ## Usage
 
-可以通过两种方式来初始化 Select 控件, 你可以根据自己的需要来进行选择. 另外, 对话框的关闭也非常方便.
+可以通过两种方式来初始化 Select 控件, 你可以根据自己的需要来进行选择.
 
 ### Via data attributes
 
-无需写 JavaScript , 即可启用对话框. 在一个触发元素（比如按钮）上设置 `data-toggle="select"` , 然后通过 `data-target="#ID"` 指定一个对应的要打开的弹出层.
+无需写 JavaScript , 即可启用下拉框.
 
 ```html
 <div class="select" data-toggle="select" data-active-class="athm-active">...</div>
@@ -19,7 +19,7 @@
 
 ### Via JavaScript
 
-直接在对应的弹出层 DOM 上调用即可.
+直接在对应的下拉框 DOM 上调用即可.
 
 ```javascript
 $('#select').select(options);
@@ -32,8 +32,8 @@ $('#select').select(options);
 Name | Type | Default | Description
 ---- | ---- | ------- | -----------
 selectPicker | string | `'[data-select-picker]'` | 触发容器
-selectValue | string | `'[data-select-picker]'` | 值容器
-selectDropdown | string | `'[data-select-picker]'` | 下拉容器
+selectValue | string | `'[data-select-value]'` | 值容器
+selectDropdown | string | `'[data-select-dropdown]'` | 下拉容器
 selectedClass | string | `'selected'` | 选中选项使用的样式类.
 disabledClass | string | `'disabled'` | 下拉框禁用状态样式类.
 activeClass | string | `'active'` | 下拉框激活状态样式类.
