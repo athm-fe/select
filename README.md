@@ -14,7 +14,22 @@
 无需写 JavaScript , 即可启用下拉框.
 
 ```html
-<div class="select" data-toggle="select" data-active-class="athm-active">...</div>
+<div class="select" data-toggle="select">
+  <div class="select__picker" data-select-picker>
+    <span class="select__value" data-select-value>选择品牌</span>
+    <i class="select__caret"></i>
+  </div>
+  <div class="select__dropdown" data-select-dropdown>
+    <ul>
+      <li data-value="1" data-text="阿斯顿·马丁1"><b>A</b><span>阿斯顿·马丁1</span></li>
+      <li data-value="2" data-text="阿斯顿·马丁2"><b>A</b><span>阿斯顿·马丁2</span></li>
+      <li data-value="3" data-text="阿斯顿·马丁3"><b>A</b><span>阿斯顿·马丁3</span></li>
+      <li data-value="4" data-text="阿斯顿·马丁4"><b>B</b><span>阿斯顿·马丁4</span></li>
+      <li data-value="5" data-text="阿斯顿·马丁5"><b>C</b><span>阿斯顿·马丁5</span></li>
+      <li data-value="6" data-text="阿斯顿·马丁6"><b>D</b><span>阿斯顿·马丁6</span></li>
+    </ul>
+  </div>
+</div>
 ```
 
 ### Via JavaScript
