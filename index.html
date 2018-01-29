@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Select</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="docs/index.css">
 </head>
 <body>
   <h1>Select</h1>
@@ -38,8 +38,11 @@
   <button type="button" id="js-hide">关闭</button>
   <button type="button" id="js-toggle">Toggle</button>
 
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../dist/select.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="dist/select.js"></script>
   <script>
     $('#js-select').on('change.fe.select', function (e, data, $item) {
       $(this).prev().text('你选择了：' + data.value + '-' + data.text);
