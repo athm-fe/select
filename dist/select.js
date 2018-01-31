@@ -1,5 +1,5 @@
 /*!
- * @autofe/select v0.1.2
+ * @autofe/select v0.1.3
  * (c) 2018 Autohome Inc.
  * Released under the MIT License.
  */
