@@ -60,7 +60,6 @@ function Select(elem, options) {
   this.$dropdown = $(this.options.selectDropdown, this.$elem);
 
   this.isActive = false;
-  this.isDisabled = false;
 
   this._data = null;
 
@@ -140,8 +139,9 @@ Select.prototype.toggle = function () {
 
 Select.prototype.show = function () {
   var activeClass = this.options.activeClass;
+  var disabledClass = this.options.disabledClass;
 
-  if (this.isDisabled) {
+  if (this.$elem.hasClass(disabledClass)) {
     return;
   }
 
@@ -180,14 +180,12 @@ Select.prototype.disable = function () {
   var disabledClass = this.options.disabledClass;
 
   this.$elem.addClass(disabledClass);
-  this.isDisabled = true;
 };
 
 Select.prototype.enable = function () {
   var disabledClass = this.options.disabledClass;
 
   this.$elem.removeClass(disabledClass);
-  this.isDisabled = false;
 };
 
 /**
